@@ -1,0 +1,5 @@
+venv/
+.env
+app/rag/vectordb/
+__pycache__/
+*.pyc
