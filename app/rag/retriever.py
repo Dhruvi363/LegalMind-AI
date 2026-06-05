@@ -6,7 +6,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 db = Chroma(
     persist_directory="app/rag/vectordb",
-    embedding_function=embeddings
+    #embedding_function=embeddings
 )
 
 query = "What is punishment for theft?"
