@@ -114,11 +114,14 @@ div[data-testid="stVerticalBlock"] > div + div {
     box-shadow: inset 0 1px 3px var(--shadow) !important;
     transition: border-color 0.2s !important;
     resize: vertical !important;
+    caret-color: #000  !important;
+    cursor: text !important;
 }
 .stTextArea textarea:focus {
     border-color: var(--gold) !important;
     outline: none !important;
     box-shadow: 0 0 0 3px rgba(201,168,76,0.15) !important;
+    caret-color: #000  !important;
 }
 
 /* ── Button ── */
@@ -273,6 +276,7 @@ if analyze:
         with st.spinner("Analysing your case — this may take a moment..."):
             try:
                 result = graph.invoke({"user_query": query})
+                
             except Exception as e:
                 st.error(f"Analysis failed: {e}")
                 st.stop()
@@ -295,7 +299,13 @@ if analyze:
         </div>
         """, unsafe_allow_html=True)
 
+
+
+
         # Legal Analysis
+
+        
+        
         analysis = result.get("analysis", "—")
         st.markdown(f"""
         <div class="result-card accent-blue">
