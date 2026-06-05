@@ -19,13 +19,19 @@ if st.button("Analyze Case"):
     if query.strip():
 
         with st.spinner("Analyzing..."):
-
-            result = graph.invoke(
+            
+            st.write("Starting analysis...")
+            try:
+                
+                result = graph.invoke(
                 {
                     "user_query": query
                 }
             )
-
+                st.success("Graph finished")
+            except Exception as e :
+                st.error(str(e))
+                
         st.subheader("Category")
         st.write(result.get("legal_category", ""))
 
